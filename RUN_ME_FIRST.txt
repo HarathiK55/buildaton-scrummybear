@@ -1,0 +1,50 @@
+========================================
+  ClariQuery - HOW TO RUN (Windows)
+========================================
+
+You need: Python installed, and your Featherless API key.
+
+Check Python first. Open Command Prompt and type:
+    python --version
+If it shows a version number, good. If not, install Python from
+python.org first (check "Add Python to PATH" during install).
+
+----------------------------------------
+STEP BY STEP
+----------------------------------------
+
+1. Put all these files in one folder (e.g. Desktop\buildathon).
+
+2. Open that folder. Click the address bar at the top,
+   type:  cmd   and press Enter. A black window opens.
+
+3. Install the tools (type this, press Enter, wait):
+       pip install -r requirements.txt
+
+4. Add your Featherless key (replace xxxxx with your real key):
+       set FEATHERLESS_API_KEY=xxxxx
+
+5. Build the database:
+       python setup_db.py
+   You should see "Database created" with row counts.
+
+6. Start the app:
+       streamlit run app.py
+   Your browser opens automatically. Type a question, click Ask.
+
+----------------------------------------
+FIRST QUESTION TO TRY
+----------------------------------------
+   What is the total claim amount by status?
+
+----------------------------------------
+IF SOMETHING BREAKS
+----------------------------------------
+- "python not found"  -> install Python from python.org
+- "pip not found"     -> try:  python -m pip install -r requirements.txt
+- key errors          -> re-do step 4 in the SAME cmd window, then step 6
+- weak SQL on hard Qs -> open app.py, change MODEL to
+                         "Qwen/Qwen3-Coder-Next"
+
+NOTE: steps 4-6 must be in the SAME cmd window. If you close it,
+redo step 4 before step 6 (the key only lasts for that window).
